@@ -1,0 +1,13 @@
+<div class="flash">
+  <% if notice.present? %>
+    <aside class="alert alert-info">
+      <%= notice %>
+      <a class="close" href="#" data-dismiss="alert">&times;</a>
+    </aside>
+  <% elsif alert.present? %>
+    <aside class="alert alert-danger">
+      <%= alert %>
+      <button class="close" href="#" data-dismiss="alert">&times;</button>
+    </aside>
+  <% end %>
+</div>

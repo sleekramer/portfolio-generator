@@ -1,0 +1,45 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require 'bootstrap-sass-official'
+ *= require_tree .
+ *= require_self
+
+ */
+div.main {
+  background-color: #2B3E65;
+  height: 100vh;
+  color: rgb(255, 240, 230);
+}
+div.jumbotron {
+  background-image: url( 'banner.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 45% 85%;
+  background-size: auto;
+  color: rgb(255, 240, 230);
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+section.info {
+  text-align: center;
+  padding: 4rem;
+  color: rgb(255, 240, 230);
+}
+
+section.info h1 {
+  font-size: 5rem;
+}
+.form-control {
+  background-color: rgb(255, 240, 230);
+}

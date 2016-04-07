@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404205439) do
+ActiveRecord::Schema.define(version: 20160407142947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "bio"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id", using: :btree
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "features"
+    t.integer  "portfolio_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "projects", ["portfolio_id"], name: "index_projects_on_portfolio_id", using: :btree
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "portfolio_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "skills", ["portfolio_id"], name: "index_skills_on_portfolio_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,4 +64,7 @@ ActiveRecord::Schema.define(version: 20160404205439) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "portfolios", "users"
+  add_foreign_key "projects", "portfolios"
+  add_foreign_key "skills", "portfolios"
 end

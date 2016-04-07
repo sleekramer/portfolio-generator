@@ -15,11 +15,16 @@
  *= require_self
 
  */
+body {
+  background-color: #2B3E65;
+  color: rgb(255, 240, 230);
+}
 div.main {
   background-color: #2B3E65;
   height: 100vh;
   color: rgb(255, 240, 230);
 }
+
 div.jumbotron {
   background-image: url( 'banner.jpg');
   background-repeat: no-repeat;

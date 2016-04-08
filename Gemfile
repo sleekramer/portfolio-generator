@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bower-rails'
 gem 'faker'
+gem 'angular-rails-templates'
 group :development, :test do
 
 end

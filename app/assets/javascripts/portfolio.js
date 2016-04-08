@@ -2,4 +2,9 @@
 //= require jquery_ujs
 //= require bootstrap-sass-official/assets/javascripts/bootstrap/alert.js
 //= require angular
-//= require portfolios/app
+//= require angular-route
+//= require anuglar-rails-templates
+//= require angularApp.js
+//= require users/user_show.html
+//= require users/Portfolios.js
+//= require users/UserShowCtrl.js

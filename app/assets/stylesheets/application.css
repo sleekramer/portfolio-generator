@@ -11,17 +11,12 @@
  * file per style scope.
  *
  *= require 'bootstrap-sass-official'
- *= require_tree .
+
  *= require_self
 
  */
 body {
-  background-color: #2B3E65;
-  color: rgb(255, 240, 230);
-}
-div.main {
-  background-color: #2B3E65;
-  height: 100vh;
+  background-color: rgb(43,62,101);
   color: rgb(255, 240, 230);
 }
 

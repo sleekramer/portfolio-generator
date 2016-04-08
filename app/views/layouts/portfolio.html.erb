@@ -4,18 +4,18 @@
   <meta content="text/html; charset=UTF8" http-equiv="Content-Type">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PortfolioGenerator</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'portfolio', media: 'all' %>
   <%= javascript_include_tag 'portfolio' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-    <%= render 'layouts/navbar' %>
-    <div class="container flash-container">
-      <%= render 'layouts/messages' %>
-    </div>
+  <%= render 'layouts/navbar' %>
+  <div class="container flash-container">
+    <%= render 'layouts/messages' %>
+  </div>
 
-    <%= yield %>
+  <%= yield %>
 
 </body>
 </html>

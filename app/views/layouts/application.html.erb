@@ -9,13 +9,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-    <%= render 'layouts/navbar' %>
-    <div class="container flash-container">
-      <%= render 'layouts/messages' %>
-    </div>
 
-    <%= yield %>
+  <%= render 'layouts/navbar' %>
+  <div class="container flash-container">
+    <%= render 'layouts/messages' %>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>

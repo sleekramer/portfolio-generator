@@ -3,6 +3,8 @@ class PortfoliosController < ApplicationController
   layout 'portfolio'
 
   def show
+    @portfolio = Portfolio.find(params[:id])
+    @project = @portfolio.projects.first
   end
 
   def edit

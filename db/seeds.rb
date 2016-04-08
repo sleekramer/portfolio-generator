@@ -22,13 +22,13 @@ users.each do |user|
     portfolio = Portfolio.create!(
       user_id: user.id,
       full_name: Faker::Name.name,
-      bio: Faker::Hipster.sentences(1,true)
+      bio: Faker::Hipster.sentences(1,true).join(" ")
     )
     5.times do
       portfolio.projects.create!(
         name: Faker::App.name,
         description: Faker::Hipster.sentence(7,true,5),
-        features: Faker::Hipster.paragraphs(2)
+        features: Faker::Hipster.paragraphs(2).join("\n")
       )
     end
     4.times do

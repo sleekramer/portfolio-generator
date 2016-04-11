@@ -1,13 +1,20 @@
 (function () {
 
-  function showConfig ($routeProvider) {
+  function showConfig ($locationProvider ,$routeProvider) {
+    $locationProvider.html5Mode({enabled: true, requireBase:true})
     $routeProvider.when("/", {
-      controller: "UserShowCtrl",
-      controllerAs: "uShow",
-      templateUrl: "users/user_show.html"
+      controller: "PortfolioShowCtrl",
+      templateUrl: "portfolios/show.html"
+    })
+    .when("/:id", {
+      controller: "PortfolioShowCtrl",
+      templateUrl: "portfolios/show.html"
     });
   }
   angular
-    .module("userShow", ["ngRoute"])
-    .config(["$routeProvider", showConfig]);
+    .module("portfolios", ["ngRoute","templates"])
+    .config(["$locationProvider","$routeProvider", showConfig]);
+
+  angular
+    .module("edit", []);
 })();

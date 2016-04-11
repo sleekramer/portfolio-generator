@@ -1,0 +1,38 @@
+<section class="container-fluid portfolio-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 jumbotron">
+        <h1>
+          <span class="glyphicon glyphicon-user"></span>
+          {{ portfolio.full_name }}
+        </h1>
+      </div>
+      <div class="col-md-6 col-md-offset-1 bio-skills">
+        <h2 class="portfolio-bio">
+          {{ portfolio.bio}}
+        </h2>
+        <h4>
+          <span class="label label-primary" ng-repeat="skill in portfolio.skills">{{skill.name }}</span>
+        </h4>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container projects">
+  <div class="row project-window">
+    <div class="col-md-3 project-list">
+      <a class="project-list-item" ng-click="changeProject(project.id)" ng-repeat="project in projects">{{ project.name}}</a>
+    </div>
+    <div class="col-md-7 col-md-offset-1 project-content">
+      <section class="row clearfix project-title">
+        <div class="blocky pull-left">
+        </div>
+        <h1>{{ project.name }}</h1>
+        <h4>{{ project.description }}</h4>
+      </section>
+      <p>
+        {{ project.features }}
+      </p>
+    </div>
+  </div>
+</section>

@@ -3,8 +3,8 @@
 //= require bootstrap-sass-official/assets/javascripts/bootstrap/alert.js
 //= require angular
 //= require angular-route
-//= require anuglar-rails-templates
+//= require angular-rails-templates
+//= require ./portfolios/show
 //= require angularApp.js
-//= require users/user_show.html
-//= require users/Portfolios.js
-//= require users/UserShowCtrl.js
+//= require PortfolioShowCtrl.js
+//= require PortfolioEditCtrl.js

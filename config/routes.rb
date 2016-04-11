@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   authenticated :user do
-    root 'users#edit', as: :authenticated
+    root 'portfolios#edit', as: :authenticated
   end
-  resources :users, only: [:show]
-  resources :portfolios, only: [:show, :edit, :update]
-  resources :skills, only: [:new, :update]
-  resoureces :projects, only: [:new, :update]
-
+  resources :portfolios, only: [:index, :edit]
+  get '/:id' => 'portfolios#show', defaults: {format: 'json'}
+  get "/portfolios/*path" => 'portfolios#index'
   root 'welcome#index'
 end

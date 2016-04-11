@@ -24,6 +24,7 @@ section.container-fluid.portfolio-banner {
 
 .label.label-primary {
   color: rgb(255, 240, 230);
+  margin-left: 1rem;
 }
 div.bio-skills {
   text-align: center;
@@ -67,7 +68,7 @@ a.project-list-item {
 }
 a.project-list-item:hover {
   background-color: rgb(236,136,0);
-  color:
+  cursor: pointer;
 }
 
 .form-control {

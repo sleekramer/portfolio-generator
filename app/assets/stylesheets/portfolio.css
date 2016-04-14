@@ -30,11 +30,13 @@ button.save.btn {
   position: absolute;
   right: 5%;
 }
-
-.label.label-primary {
-  color: rgb(255, 240, 230);
+.label {
   margin-left: 1rem;
 }
+.label.label-primary {
+  color: rgb(255, 240, 230);
+}
+
 div.bio-skills {
   text-align: center;
   padding: 5rem 0;
@@ -72,13 +74,35 @@ a.project-list-item {
   background: rgb(245,158,41);
   border: 1px solid #ddd;
   text-decoration: none;
-
 }
 a.project-list-item:hover {
   background-color: rgb(236,136,0);
   cursor: pointer;
 }
+a.new-project,
+span.input-group-addon {
+  background-color: #777;
+  color: #FFF;
+}
+span.new-skill:hover,
+a.new-project:hover,
+span.input-group-addon:hover {
+  color: #444;
+  background-color: #ccc;
+  cursor: pointer;
+}
+a.marked-delete {
+  color: rgb(222,0,0);
+}
 
+span.mark-delete {
+  background-color: red;
+  color: #FFF;
+}
+
+span.mark-delete:hover {
+  background-color: darkred;
+}
 .form-control {
   background-color: rgb(255, 240, 230);
 }

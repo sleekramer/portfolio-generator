@@ -28,7 +28,32 @@
 
       },function (response) {
         alert(response.error);
-      })
+      });
+    };
+
+    $scope.newSkill = function () {
+      $scope.skills.push({
+        "id": null,
+        "name":"New Skill"
+      });
+    };
+
+    $scope.newProject = function () {
+      $scope.projects.push({
+        "id": null,
+        "name":"New Project",
+        "description": null,
+        "features": null
+      });
+      $scope.project = $scope.projects[$scope.projects.length - 1];
+    };
+
+    $scope.markDelete = function (obj) {
+      if (obj.hasOwnProperty("_destroy")) {
+        delete obj["_destroy"];
+      } else {
+        obj["_destroy"] = 1;
+      }
     };
   }
 

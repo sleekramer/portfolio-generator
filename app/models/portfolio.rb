@@ -3,8 +3,8 @@ class Portfolio < ActiveRecord::Base
   has_many :projects, dependent: :destroy
   has_many :skills, dependent: :destroy
 
-  accepts_nested_attributes_for :projects, :skills, reject_if: :invalid_project
-  accepts_nested_attributes_for :skills, reject_if: :invalid_skill
+  accepts_nested_attributes_for :projects, reject_if: :invalid_project, allow_destroy: true
+  accepts_nested_attributes_for :skills, reject_if: :invalid_skill, allow_destroy: true
 
   private
 

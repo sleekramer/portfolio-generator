@@ -12,8 +12,6 @@ class PortfoliosController < ApplicationController
 
   def edit
     portfolio = current_user.portfolio
-    portfolio.projects.new(name: "New Project")
-    portfolio.skills.new(name: "New Skill")
     skills = portfolio.skills
     projects = portfolio.projects
     @portfolio = portfolio.to_json({except: [:created_at, :updated_at, :user_id], include: [{projects: {except: [:created_at, :updated_at, :portfolio_id]}}, {skills: {except: [:created_at, :updated_at, :portfolio_id]}}]})
@@ -22,8 +20,6 @@ class PortfoliosController < ApplicationController
   def update
     portfolio = Portfolio.find(params[:id])
     if portfolio.update(portfolio_params)
-      portfolio.projects.new(name: "New Project")
-      portfolio.skills.new(name: "New Skill")
       respond_to do |format|
         format.json { render json: portfolio.to_json({except: [:created_at, :updated_at, :user_id], include: [{projects: {except: [:created_at, :updated_at, :portfolio_id]}}, {skills: {except: [:created_at, :updated_at, :portfolio_id]}}]}), status: 200 }
       end
@@ -37,6 +33,6 @@ class PortfoliosController < ApplicationController
   private
 
   def portfolio_params
-    params.require(:portfolio).permit(:full_name, :bio, projects_attributes: [:id, :name, :description, :features], skills_attributes: [:id, :name])
+    params.require(:portfolio).permit(:full_name, :bio, projects_attributes: [:id, :name, :description, :features, :_destroy], skills_attributes: [:id, :name, :_destroy])
   end
 end

@@ -21,6 +21,15 @@ section.container-fluid.portfolio-banner {
 .jumbotron h1 {
   font-size: 6rem;
 }
+button.edit{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+button.save.btn {
+  position: absolute;
+  right: 5%;
+}
 
 .label.label-primary {
   color: rgb(255, 240, 230);
@@ -28,8 +37,7 @@ section.container-fluid.portfolio-banner {
 }
 div.bio-skills {
   text-align: center;
-  position: relative;
-  top: 6rem;
+  padding: 5rem 0;
 }
 h2.portfolio-bio {
   color: rgb(70,95,150);

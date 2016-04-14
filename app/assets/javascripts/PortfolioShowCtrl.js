@@ -1,7 +1,7 @@
 (function () {
   function PortfolioShowCtrl ($scope, $http, $routeParams) {
     var id = $routeParams.id;
-    $http.get("/" + id + ".json").then(function(response) {
+    $http.get("/portfolio/" + id + ".json").then(function(response) {
       $scope.portfolio = response.data;
       $scope.projects = $scope.portfolio.projects;
       $scope.project = $scope.projects[0];

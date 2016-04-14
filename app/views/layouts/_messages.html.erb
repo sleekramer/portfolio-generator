@@ -2,12 +2,25 @@
   <% if notice.present? %>
     <aside class="alert alert-info">
       <%= notice %>
-      <a class="close" href="#" data-dismiss="alert">&times;</a>
+      <button type="button" class="close alert-close">&times;</button>
     </aside>
   <% elsif alert.present? %>
     <aside class="alert alert-danger">
       <%= alert %>
-      <button class="close" href="#" data-dismiss="alert">&times;</button>
+      <button type="button" class="close alert-close">&times;</button>
     </aside>
   <% end %>
+  <script type="text/javascript">
+    (function () {
+      var alertCloseElems = document.getElementsByClassName("alert-close");
+      if (alertCloseElems !== []){
+        for (var i = 0; i < alertCloseElems.length; i++) {
+          alertCloseElems[i].addEventListener("click", function () {
+            var elemToRemove = this.parentElement;
+            elemToRemove.parentElement.removeChild(elemToRemove);
+          });
+        }
+      }
+    })();
+  </script>
 </div>

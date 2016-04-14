@@ -4,20 +4,42 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5 jumbotron">
-            <h1>
+            <h1 ng-hide="fullNameEdit">
               <span class="glyphicon glyphicon-user"></span>
               {{ portfolio.full_name }}
             </h1>
+            <h1 ng-show="fullNameEdit">
+              <input type="text" name="fullName" ng-model="portfolio.full_name" class="form-control">
+            </h1>
+            <button type="button" ng-click="fullNameEdit=!fullNameEdit" class="btn btn-default btn-small edit">
+              <span class="glyphicon glyphicon-edit"></span>
+            </button>
           </div>
           <div class="col-md-6 col-md-offset-1 bio-skills">
-            <h2 class="portfolio-bio">
-              {{ portfolio.bio}}
-            </h2>
-            <h4>
-              <span class="label label-primary" ng-repeat="skill in portfolio.skills">{{skill.name }}</span>
-            </h4>
+            <button type="button" class="edit btn btn-default" ng-click="bioSkillsEdit=!bioSkillsEdit">
+              <span class="glyphicon glyphicon-edit"></span>
+            </button>
+            <div ng-hide="bioSkillsEdit">
+              <h2 class="portfolio-bio">
+                {{ portfolio.bio}}
+              </h2>
+              <h4>
+                <span class="label label-primary" ng-repeat="skill in skills">{{skill.name }}</span>
+              </h4>
+            </div>
+            <div ng-show="bioSkillsEdit">
+              <div class="form-group form-group-lg">
+                <input type="text" name="bio" ng-model="portfolio.bio" class="form-control">
+              </div>
+            </br>
+              <form class="form-inline">
+                <label for="skills">Skills:</label>
+                <input type="text" name="skills" class="form-control" ng-repeat="skill in skills track by skill.id" ng-model="skill.name">
+              </form>
+            </div>
           </div>
         </div>
+        <button type="button" class="save btn btn-primary" ng-click="saveChanges()">Save Changes</button>
       </div>
     </section>
     <section class="container projects">
@@ -26,15 +48,37 @@
           <a class="project-list-item" ng-click="changeProject(project.id)" ng-repeat="project in projects">{{ project.name}}</a>
         </div>
         <div class="col-md-7 col-md-offset-1 project-content">
-          <section class="row clearfix project-title">
-            <div class="blocky pull-left">
-            </div>
-            <h1>{{ project.name }}</h1>
-            <h4>{{ project.description }}</h4>
-          </section>
-          <p>
-            {{ project.features }}
-          </p>
+          <button type="button" class="btn btn-default edit" ng-click="projectEdit=!projectEdit">
+            <span class="glyphicon glyphicon-edit"></span>
+          </button>
+          <div ng-hide="projectEdit">
+            <section class="row clearfix project-title">
+              <div class="blocky pull-left">
+              </div>
+              <h1>{{ project.name }}</h1>
+              <h4>{{ project.description }}</h4>
+            </section>
+            <p>
+              {{ project.features }}
+            </p>
+          </div>
+          <div ng-show="projectEdit">
+            <section class="row clearfix project-title">
+              <div class="form-group form-group-lg">
+                <label for="title">Name:</label>
+                <input type="text" name="name" ng-model="project.name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" name="description" ng-model="project.description" class="form-control">
+              </div>
+            </section>
+            <p>
+              <label for="features">Features:</label>
+              <textarea name="features" rows="8" ng-model="project.features" class="form-control"></textarea>
+            </p>
+          </div>
+          <button type="button" class="save btn btn-primary" ng-click="saveChanges()">Save Changes</button>
         </div>
       </div>
     </section>

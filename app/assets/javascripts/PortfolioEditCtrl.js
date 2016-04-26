@@ -15,7 +15,8 @@
         $scope.portfolio["skills_attributes"] = $scope.skills;
         delete $scope.portfolio["skills"];
       }
-    })
+    });
+
     $scope.changeProject = function (projectId) {
       $scope.project = $scope.projects.find(c => c.id === projectId);
     };
@@ -37,6 +38,10 @@
         "name":"New Skill"
       });
     };
+
+    $scope.$watch("project.features", function () {
+      document.getElementById('project-features').innerHTML = marked($scope.project.features);
+    });
 
     $scope.newProject = function () {
       $scope.projects.push({

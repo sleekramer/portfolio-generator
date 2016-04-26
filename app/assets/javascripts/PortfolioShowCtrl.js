@@ -1,3 +1,22 @@
+var renderer = new marked.Renderer();
+renderer.heading = function(text, level, raw) {
+  return '<h4'
+    + ' id="'
+    + this.options.headerPrefix
+    + raw.toLowerCase().replace(/[^\w]+/g, '-')
+    + '">'
+    + text
+    + '</h'
+    + level
+    + '>\n';
+};
+marked.setOptions({
+  renderer: renderer,
+  gfm: true,
+  sanitize: true,
+  smartlLsts: true
+});
+
 (function () {
   function PortfolioShowCtrl ($scope, $http, $routeParams) {
     var id = $routeParams.id;

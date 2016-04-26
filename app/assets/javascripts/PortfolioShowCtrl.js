@@ -30,6 +30,9 @@ marked.setOptions({
     $scope.changeProject = function (projectId) {
       $scope.project = $scope.projects.find(c => c.id === projectId)
     }
+    $scope.$watch("project.features", function () {
+      document.getElementById('features').innerHTML = marked($scope.project.features);
+    });
   }
 
   angular

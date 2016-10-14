@@ -17,6 +17,7 @@ In order to run the app locally, you must have Ruby, Rails, PostgreSQL and Bower
 If you have already installed Bower, run `$ bower install` to install the frontend assets.  Then, follow setup for a rails apps:
 
 ```
+$ bundle install
 $ rake db:setup
 $ rake db:migrate
 $ rails server
